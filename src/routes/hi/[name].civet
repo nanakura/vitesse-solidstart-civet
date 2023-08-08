@@ -1,0 +1,21 @@
+{ useNavigate, useParams } from '@solidjs/router'
+
+export default function Hi() {
+	navigate := useNavigate()
+	params := useParams()
+	return (
+		<div>
+			<div class="i-carbon-pedestrian text-4xl inline-block" />
+			<p>
+				Hi, {params.name}
+			<p class="text-sm op50">
+				<em>
+					Dynamic routes!
+			<div>
+				<button
+					class="btn m-3 text-sm mt-0"
+					onClick={() => navigate -1}
+				>
+					Back
+	)
+}

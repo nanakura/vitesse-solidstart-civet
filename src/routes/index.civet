@@ -1,12 +1,39 @@
-{ Title } from 'solid-start'
-Counter from '../components/Counter.civet'
+{ Component, createSignal } from 'solid-js'
 
-export default function Home()
-  <main>
-    <Title>Hello World
-    <h1>Hello world!
-    <Counter>
-    <p>
-      Visit{' '}
-      <a href='https://start.solidjs.com' target='_blank'>start.solidjs.com
-      {' '}to learn how to build SolidStart apps.
+const Index:Component = () =>
+	[name, setName] := createSignal('')
+	function go() {
+		if (name()) {
+      location.href = `/hi/${encodeURIComponent(name())}`
+		}
+	}
+
+	<div>
+		<div class="i-carbon-campsite text-4xl inline-block" />
+		<p>
+			<a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
+				Vitesse Lite
+		<p>
+			<em class="text-sm op75">Opinionated Vite Starter Template</em>
+
+		<div class="py-4" />
+
+		<input
+			id="input"
+			placeholder="What's your name?"
+			type="text"
+			class="px-4 py-2 w-250px text-center bg-transparent outline-none outline-active:none border border-rounded border-gray-200 border-dark:gray-700"
+			onInput={(e) => setName(e.currentTarget.value)}
+			onKeyDown={({ key }) => key === 'Enter' && go()}
+		/>
+
+		<div>
+			<button
+				class="m-3 text-sm btn"
+				disabled={!name()}
+				onClick={() => go() }
+			>
+				Go
+
+
+export default Index

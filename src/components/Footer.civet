@@ -1,0 +1,18 @@
+{ Component, createSignal } from 'solid-js'
+{ useDark } from '../primitives/index.civet'
+
+const Footer: Component = () =>
+	{ isDark, toggleDark } := useDark()
+	<nav class="text-xl mt-6 inline-flex gap-2">
+		<button class="icon-btn !outline-none" onClick={() => toggleDark()}>
+			{isDark() ? <div class="i-carbon-moon" /> : <div class="i-carbon-sun" />}
+		<a
+			class="icon-btn i-carbon-logo-github"
+			rel="noreferrer"
+			href="https://github.com/nanakura/vitesse-lite-solidjs"
+			target="_blank"
+			title="GitHub"
+		/>
+
+
+export default Footer

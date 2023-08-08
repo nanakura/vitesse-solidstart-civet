@@ -3,6 +3,8 @@
 {
   A, Body, ErrorBoundary, FileRoutes, Head, Html, Meta, Routes, Scripts, Title
 } from 'solid-start'
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
 import './root.css'
 
 export default function Root()
@@ -14,7 +16,6 @@ export default function Root()
     <Body>
       <Suspense>
         <ErrorBoundary>
-          <A href='/' class='nav-link'>Index
-          <A href='/about' class='nav-link'>About
-          <Routes><FileRoutes>
+          <main class="font-sans px-4 py-10 text-center text-gray-700 dark:text-gray-200">
+            <Routes><FileRoutes>
       <Scripts>

@@ -1,0 +1,15 @@
+{ usePrefersDark } from '@solid-primitives/media'
+{ createStorageSignal } from '@solid-primitives/storage'
+{ createMemo, createEffect } from 'solid-js'
+
+export default function useDark() {
+	prefersDark := usePrefersDark()
+	[value, setValue] := createStorageSignal<string>('dark-mode')
+	isDark := createMemo(() => value() === 'auto' ? prefersDark() : value() === 'dark')
+	createEffect(() => document.documentElement.classList.toggle('dark', isDark()))
+	toggleDark := () -> setValue isDark() ? 'light' : 'dark'
+	return {
+		isDark
+		toggleDark
+	}
+}
