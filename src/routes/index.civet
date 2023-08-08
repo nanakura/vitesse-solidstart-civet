@@ -1,10 +1,12 @@
 { Component, createSignal } from 'solid-js'
+{ useNavigate } from '@solidjs/router'
 
 const Index:Component = () =>
 	[name, setName] := createSignal('')
+	navigate := useNavigate()
 	function go() {
 		if (name()) {
-      location.href = `/hi/${encodeURIComponent(name())}`
+			navigate(`/hi/${encodeURIComponent(name())}`)
 		}
 	}
 
